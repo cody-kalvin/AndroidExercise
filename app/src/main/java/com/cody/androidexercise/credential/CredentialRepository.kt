@@ -1,31 +1,26 @@
 package com.cody.androidexercise.credential
 
 import android.content.*
-import com.cody.androidexercise.R
 
 object CredentialRepository {
-    private lateinit var context: Context
+    private const val FB_CREDENTIALS = "fb_credentials"
+
+    private const val FB_ACCESS_TOKEN = "fb_access_token"
 
     private lateinit var instance: SharedPreferences
 
     fun init(context: Context) {
-        this.context = context
-
-        this.instance = context.getSharedPreferences(
-            context.resources.getString(R.string.fb_credential),
-            Context.MODE_PRIVATE
-        )
+        instance = context.getSharedPreferences(FB_CREDENTIALS, Context.MODE_PRIVATE)
     }
 
     var facebookToken: String = ""
         set(value) {
             field = value
             val editor = instance.edit()
-            editor.putString(context.resources.getString(R.string.fb_access_token), value)
+            editor.putString(FB_ACCESS_TOKEN, value)
             editor.apply()
         }
         get() {
-            val key = context.resources.getString(R.string.fb_access_token)
-            return instance.getString(key, "") ?: ""
+            return instance.getString(FB_ACCESS_TOKEN, "") ?: ""
         }
 }
