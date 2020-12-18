@@ -7,4 +7,6 @@
     <string name="fb_login_protocol_scheme">fb816004972531857</string>
     <string name="menu_fb_login">Facebook Login</string>
     <string name="fragment_facebook_login">Facebook Login</string>
+    <string name="menu_fb_data">Facebook Data</string>
+    <string name="fragment_facebook_data">Facebook Data</string>
 </resources>
