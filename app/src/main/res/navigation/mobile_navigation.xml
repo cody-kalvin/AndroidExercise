@@ -14,4 +14,9 @@
         android:name="com.cody.androidexercise.ui.facebook.FacebookLoginFragment"
         android:label="@string/fragment_facebook_login"
         tools:layout="@layout/fragment_facebook_login" />
+    <fragment
+        android:id="@+id/nav_whats_app_send"
+        android:name="com.cody.androidexercise.ui.whatsapp.WhatsAppSendFragment"
+        android:label="@string/fragment_whats_app_send"
+        tools:layout="@layout/fragment_whats_app_send" />
 </navigation>
