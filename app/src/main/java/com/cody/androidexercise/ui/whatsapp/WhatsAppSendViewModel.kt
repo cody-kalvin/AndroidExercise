@@ -27,6 +27,4 @@ class WhatsAppSendViewModel : ViewModel() {
         }
         return intent
     }
-
-
 }
