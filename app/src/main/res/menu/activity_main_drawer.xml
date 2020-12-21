@@ -13,5 +13,8 @@
         <item
             android:id="@+id/nav_facebook_data"
             android:title="@string/menu_fb_data" />
+        <item
+            android:id="@+id/nav_whats_app_send"
+            android:title="@string/menu_whats_app_send" />
     </group>
 </menu>
