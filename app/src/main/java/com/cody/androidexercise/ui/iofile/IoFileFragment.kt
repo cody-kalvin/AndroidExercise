@@ -48,14 +48,13 @@ class IoFileFragment : Fragment() {
             IoFileWriteResult.Ongoing -> binding.barLoading.visibility = View.VISIBLE
 
             IoFileWriteResult.Success -> {
+                viewModel.content.value = ""
                 binding.barLoading.visibility = View.GONE
-                binding.inputContent.setText("")
                 Toast.makeText(requireContext(), "Saved", Toast.LENGTH_SHORT).show()
             }
 
             is IoFileWriteResult.Failure -> {
                 binding.barLoading.visibility = View.GONE
-                binding.inputContent.setText("")
                 Toast.makeText(requireContext(), result.error, Toast.LENGTH_SHORT).show()
             }
         }
