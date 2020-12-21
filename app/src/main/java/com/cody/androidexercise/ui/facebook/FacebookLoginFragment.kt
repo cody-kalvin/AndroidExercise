@@ -23,6 +23,7 @@ class FacebookLoginFragment : Fragment() {
         viewModel.initLoginCallback()
 
         binding = FragmentFacebookLoginBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = this
         binding.loginButton.apply {
             setPermissions(EMAIL)
             fragment = this@FacebookLoginFragment
