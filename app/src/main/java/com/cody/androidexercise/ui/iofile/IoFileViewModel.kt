@@ -26,8 +26,9 @@ class IoFileViewModel : ViewModel() {
             outputStream = context.openFileOutput(fileName, Context.MODE_PRIVATE)
             outputStream?.let {
                 it.write(fileBody.toByteArray())
-                _writeResult.value = IoFileWriteResult.Success
+                _writeResult.value = IoFileWriteResult.Success(fileBody)
             }
+            content.value = ""
         } catch (e: FileNotFoundException) {
             _writeResult.value = IoFileWriteResult.Failure(e.message ?: "Unknown error")
         } catch (e: IOException) {
@@ -48,6 +49,7 @@ class IoFileViewModel : ViewModel() {
             reader = BufferedReader(InputStreamReader(inputStream))
             val line = reader.readLine()
             _loadResult.value = IoFileLoadResult.Success(line)
+            content.value = line
         } catch (e: FileNotFoundException) {
             _loadResult.value = IoFileLoadResult.Failure(e.message ?: "Unknown error")
         } catch (e: IOException) {

@@ -23,11 +23,11 @@ class IoFileFragment : Fragment() {
         binding.viewModel = viewModel
 
         viewModel.writeResult.observe(viewLifecycleOwner) {
-            setupWriteResult(it)
+            alertWriteResult(it)
         }
 
         viewModel.loadResult.observe(viewLifecycleOwner) {
-            setupLoadResult(it)
+            alertLoadResult(it)
         }
 
         binding.actionSave.setOnClickListener {
@@ -41,41 +41,23 @@ class IoFileFragment : Fragment() {
         return binding.root
     }
 
-    private fun setupWriteResult(result: IoFileWriteResult) {
-        when (result) {
-            IoFileWriteResult.Initial -> binding.barLoading.visibility = View.GONE
-
-            IoFileWriteResult.Ongoing -> binding.barLoading.visibility = View.VISIBLE
-
-            IoFileWriteResult.Success -> {
-                viewModel.content.value = ""
-                binding.barLoading.visibility = View.GONE
-                Toast.makeText(requireContext(), "Saved", Toast.LENGTH_SHORT).show()
-            }
-
-            is IoFileWriteResult.Failure -> {
-                binding.barLoading.visibility = View.GONE
-                Toast.makeText(requireContext(), result.error, Toast.LENGTH_SHORT).show()
-            }
+    private fun alertWriteResult(result: IoFileWriteResult) {
+        val message = when (result) {
+            IoFileWriteResult.Initial -> "Welcome"
+            IoFileWriteResult.Ongoing -> "Writing.."
+            is IoFileWriteResult.Success -> "Saved!"
+            is IoFileWriteResult.Failure -> result.error
         }
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
-    private fun setupLoadResult(result: IoFileLoadResult) {
-        when (result) {
-            IoFileLoadResult.Initial -> binding.barLoading.visibility = View.GONE
-
-            IoFileLoadResult.Ongoing -> binding.barLoading.visibility = View.VISIBLE
-
-            is IoFileLoadResult.Success -> {
-                viewModel.content.value = result.content
-                binding.barLoading.visibility = View.GONE
-                Toast.makeText(requireContext(), "Loaded", Toast.LENGTH_SHORT).show()
-            }
-
-            is IoFileLoadResult.Failure -> {
-                binding.barLoading.visibility = View.GONE
-                Toast.makeText(requireContext(), result.error, Toast.LENGTH_SHORT).show()
-            }
+    private fun alertLoadResult(result: IoFileLoadResult) {
+        val message = when (result) {
+            IoFileLoadResult.Initial -> "Welcome"
+            IoFileLoadResult.Ongoing -> "Loading.."
+            is IoFileLoadResult.Success -> "Loaded!"
+            is IoFileLoadResult.Failure -> result.error
         }
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 }
