@@ -7,4 +7,9 @@
     <string name="fb_login_protocol_scheme">fb816004972531857</string>
     <string name="menu_fb_login">Facebook Login</string>
     <string name="fragment_facebook_login">Facebook Login</string>
+    <string name="menu_io_file">IO File</string>
+    <string name="fragment_io_file">IO File</string>
+    <string name="hint_content">Content</string>
+    <string name="action_save">Save</string>
+    <string name="action_load">Load</string>
 </resources>
