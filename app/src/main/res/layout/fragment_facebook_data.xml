@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.facebook.FacebookDataFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.cody.androidexercise.ui.facebook.FacebookDataViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@{viewModel.name}"
+            android:textAlignment="center" />
+
+    </FrameLayout>
+</layout>
