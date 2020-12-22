@@ -22,7 +22,7 @@ class RawDataFragment : Fragment() {
 
         viewModel = ViewModelProvider(requireActivity()).get(RawDataViewModel::class.java)
         viewModel.readResult.observe(viewLifecycleOwner) {
-            setupReadResult(it)
+            alertReadResult(it)
         }
 
         binding.viewModel = viewModel
@@ -33,21 +33,13 @@ class RawDataFragment : Fragment() {
         return binding.root
     }
 
-    private fun setupReadResult(result: RawDataReadResult) {
-        val context = requireContext()
-        when (result) {
-            RawDataReadResult.Initial -> {
-                Toast.makeText(context, "Welcome", Toast.LENGTH_SHORT).show()
-            }
-            RawDataReadResult.Ongoing -> {
-                Toast.makeText(context, "Reading...", Toast.LENGTH_SHORT).show()
-            }
-            is RawDataReadResult.Success -> {
-                Toast.makeText(context, "Success!", Toast.LENGTH_SHORT).show()
-            }
-            is RawDataReadResult.Failure -> {
-                Toast.makeText(context, result.error, Toast.LENGTH_SHORT).show()
-            }
+    private fun alertReadResult(result: RawDataReadResult) {
+        val message = when (result) {
+            RawDataReadResult.Initial -> "Welcome"
+            RawDataReadResult.Ongoing -> "Reading..."
+            is RawDataReadResult.Success -> "Success!"
+            is RawDataReadResult.Failure -> result.error
         }
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 }
