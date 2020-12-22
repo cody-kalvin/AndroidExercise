@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.*
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.cody.androidexercise.R
 import com.cody.androidexercise.databinding.FragmentAssetDataBinding
 
 class AssetDataFragment : Fragment() {
@@ -35,9 +36,9 @@ class AssetDataFragment : Fragment() {
 
     private fun alertReadResult(result: AssetDataReadResult) {
         val message = when (result) {
-            AssetDataReadResult.Initial -> "Welcome!"
-            AssetDataReadResult.Ongoing -> "Reading..."
-            is AssetDataReadResult.Success -> "Success!"
+            AssetDataReadResult.Initial -> getString(R.string.message_welcome)
+            AssetDataReadResult.Ongoing -> getString(R.string.message_reading)
+            is AssetDataReadResult.Success -> getString(R.string.message_success)
             is AssetDataReadResult.Failure -> result.error
         }
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()

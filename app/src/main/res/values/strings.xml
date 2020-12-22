@@ -20,4 +20,7 @@
     <string name="menu_whats_app_send">WhatsApp Send</string>
     <string name="menu_fb_data">Facebook Data</string>
     <string name="fragment_facebook_data">Facebook Data</string>
+    <string name="message_welcome">Welcome!</string>
+    <string name="message_reading">Reading…</string>
+    <string name="message_success">Success!</string>
 </resources>
