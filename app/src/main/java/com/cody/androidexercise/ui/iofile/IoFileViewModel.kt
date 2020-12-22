@@ -22,7 +22,7 @@ class IoFileViewModel : ViewModel() {
 
         try {
             val fileName = "sample.txt"
-            val fileBody = content.value!!
+            val fileBody = content.value ?: ""
             outputStream = context.openFileOutput(fileName, Context.MODE_PRIVATE)
             outputStream?.let {
                 it.write(fileBody.toByteArray())
