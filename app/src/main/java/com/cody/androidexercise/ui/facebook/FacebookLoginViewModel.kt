@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.cody.androidexercise.credential.CredentialRepository
 import com.facebook.*
 import com.facebook.login.*
+import com.google.gson.Gson
 
 class FacebookLoginViewModel : ViewModel() {
     private lateinit var callbackManager: CallbackManager
@@ -18,7 +19,7 @@ class FacebookLoginViewModel : ViewModel() {
                 override fun onSuccess(result: LoginResult?) {
                     val accessToken = result?.accessToken
                     if (accessToken != null && !accessToken.isExpired) {
-                        CredentialRepository.facebookToken = accessToken.token
+                        CredentialRepository.facebookToken = Gson().toJson(accessToken)
                     }
                 }
 
