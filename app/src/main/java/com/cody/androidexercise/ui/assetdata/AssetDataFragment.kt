@@ -22,7 +22,7 @@ class AssetDataFragment : Fragment() {
 
         viewModel = ViewModelProvider(requireActivity()).get(AssetDataViewModel::class.java)
         viewModel.readResult.observe(viewLifecycleOwner) {
-            setupReadResult(it)
+            alertReadResult(it)
         }
 
         binding.viewModel = viewModel
@@ -33,7 +33,7 @@ class AssetDataFragment : Fragment() {
         return binding.root
     }
 
-    private fun setupReadResult(result: AssetDataReadResult) {
+    private fun alertReadResult(result: AssetDataReadResult) {
         val message = when (result) {
             AssetDataReadResult.Initial -> "Welcome!"
             AssetDataReadResult.Ongoing -> "Reading..."
