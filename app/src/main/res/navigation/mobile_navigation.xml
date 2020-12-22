@@ -24,4 +24,9 @@
         android:name="com.cody.androidexercise.ui.whatsapp.WhatsAppSendFragment"
         android:label="@string/fragment_whats_app_send"
         tools:layout="@layout/fragment_whats_app_send" />
+    <fragment
+        android:id="@+id/nav_io_file"
+        android:name="com.cody.androidexercise.ui.iofile.IoFileFragment"
+        android:label="@string/fragment_io_file"
+        tools:layout="@layout/fragment_io_file" />
 </navigation>

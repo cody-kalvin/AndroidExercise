@@ -16,5 +16,8 @@
         <item
             android:id="@+id/nav_whats_app_send"
             android:title="@string/menu_whats_app_send" />
+        <item
+            android:id="@+id/nav_io_file"
+            android:title="@string/menu_io_file" />
     </group>
 </menu>

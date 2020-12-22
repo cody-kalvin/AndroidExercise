@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.iofile.IoFileFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.cody.androidexercise.ui.iofile.IoFileViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/input_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/hint_content"
+            android:hint="@string/hint_content"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:text="@={viewModel.content}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/action_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/action_save"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/input_content" />
+
+        <Button
+            android:id="@+id/action_load"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:text="@string/action_load"
+            app:layout_constraintStart_toEndOf="@+id/action_save"
+            app:layout_constraintTop_toBottomOf="@+id/input_content" />
+
+        <ProgressBar
+            android:id="@+id/bar_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:loadResult="@{viewModel.loadResult}"
+            app:writeResult="@{viewModel.writeResult}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
