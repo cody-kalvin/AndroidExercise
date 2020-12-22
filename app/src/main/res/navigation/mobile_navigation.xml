@@ -15,6 +15,21 @@
         android:label="@string/fragment_facebook_login"
         tools:layout="@layout/fragment_facebook_login" />
     <fragment
+        android:id="@+id/nav_facebook_data"
+        android:name="com.cody.androidexercise.ui.facebook.FacebookDataFragment"
+        android:label="@string/fragment_facebook_data"
+        tools:layout="@layout/fragment_facebook_data" />
+    <fragment
+        android:id="@+id/nav_whats_app_send"
+        android:name="com.cody.androidexercise.ui.whatsapp.WhatsAppSendFragment"
+        android:label="@string/fragment_whats_app_send"
+        tools:layout="@layout/fragment_whats_app_send" />
+    <fragment
+        android:id="@+id/nav_io_file"
+        android:name="com.cody.androidexercise.ui.iofile.IoFileFragment"
+        android:label="@string/fragment_io_file"
+        tools:layout="@layout/fragment_io_file" />
+    <fragment
         android:id="@+id/nav_asset_data"
         android:name="com.cody.androidexercise.ui.assetdata.AssetDataFragment"
         android:label="@string/fragment_asset_data"
