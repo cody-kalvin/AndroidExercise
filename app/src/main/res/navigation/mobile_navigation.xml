@@ -34,4 +34,9 @@
         android:name="com.cody.androidexercise.ui.assetdata.AssetDataFragment"
         android:label="@string/fragment_asset_data"
         tools:layout="@layout/fragment_asset_data" />
+    <fragment
+        android:id="@+id/nav_raw_data"
+        android:name="com.cody.androidexercise.ui.rawdata.RawDataFragment"
+        android:label="@string/fragment_raw_data"
+        tools:layout="@layout/fragment_raw_data" />
 </navigation>
