@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.*
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.cody.androidexercise.R
 import com.cody.androidexercise.databinding.FragmentRawDataBinding
 
 class RawDataFragment : Fragment() {
@@ -35,9 +36,9 @@ class RawDataFragment : Fragment() {
 
     private fun alertReadResult(result: RawDataReadResult) {
         val message = when (result) {
-            RawDataReadResult.Initial -> "Welcome"
-            RawDataReadResult.Ongoing -> "Reading..."
-            is RawDataReadResult.Success -> "Success!"
+            RawDataReadResult.Initial -> getString(R.string.message_welcome)
+            RawDataReadResult.Ongoing -> getString(R.string.message_reading)
+            is RawDataReadResult.Success -> getString(R.string.message_success)
             is RawDataReadResult.Failure -> result.error
         }
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
