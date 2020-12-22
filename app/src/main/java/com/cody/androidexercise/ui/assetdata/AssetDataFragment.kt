@@ -34,20 +34,12 @@ class AssetDataFragment : Fragment() {
     }
 
     private fun setupReadResult(result: AssetDataReadResult) {
-        val context = requireContext()
-        when (result) {
-            AssetDataReadResult.Initial -> {
-                Toast.makeText(context, "Welcome!", Toast.LENGTH_SHORT).show()
-            }
-            AssetDataReadResult.Ongoing -> {
-                Toast.makeText(context, "Reading...", Toast.LENGTH_SHORT).show()
-            }
-            is AssetDataReadResult.Success -> {
-                Toast.makeText(context, "Success!", Toast.LENGTH_SHORT).show()
-            }
-            is AssetDataReadResult.Failure -> {
-                Toast.makeText(context, result.error, Toast.LENGTH_SHORT).show()
-            }
+        val message = when (result) {
+            AssetDataReadResult.Initial -> "Welcome!"
+            AssetDataReadResult.Ongoing -> "Reading..."
+            is AssetDataReadResult.Success -> "Success!"
+            is AssetDataReadResult.Failure -> result.error
         }
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 }
