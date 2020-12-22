@@ -29,7 +29,9 @@ class RawDataViewModel: ViewModel() {
                 }
             } while (str != null)
 
-            _readResult.value = RawDataReadResult.Success(builder.toString())
+            val body = builder.toString()
+            _readResult.value = RawDataReadResult.Success(body)
+            content.value = body
         } catch (e: IOException) {
             _readResult.value = RawDataReadResult.Failure(e.message ?: "Unknown error")
         } finally {

@@ -43,7 +43,6 @@ class RawDataFragment : Fragment() {
                 Toast.makeText(context, "Reading...", Toast.LENGTH_SHORT).show()
             }
             is RawDataReadResult.Success -> {
-                viewModel.content.value = result.content
                 Toast.makeText(context, "Success!", Toast.LENGTH_SHORT).show()
             }
             is RawDataReadResult.Failure -> {
