@@ -32,7 +32,9 @@ class AssetDataViewModel : ViewModel() {
                 }
             } while (str != null)
 
-            _readResult.value = AssetDataReadResult.Success(builder.toString())
+            val body = builder.toString()
+            _readResult.value = AssetDataReadResult.Success(body)
+            content.value = body
         } catch (e: IOException) {
             _readResult.value = AssetDataReadResult.Failure(e.message ?: "Unknown error")
         } finally {
