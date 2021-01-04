@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.cody.androidexercise.util.SharedPrefUtil
 import com.facebook.*
 import com.facebook.login.*
+import com.google.gson.Gson
 
 class FacebookLoginViewModel : ViewModel() {
     private lateinit var callbackManager: CallbackManager

@@ -10,7 +10,6 @@ import com.cody.androidexercise.databinding.FragmentFacebookLoginBinding
 private const val EMAIL = "email"
 
 class FacebookLoginFragment : Fragment() {
-
     private lateinit var binding: FragmentFacebookLoginBinding
 
     private lateinit var viewModel: FacebookLoginViewModel
@@ -23,6 +22,7 @@ class FacebookLoginFragment : Fragment() {
         viewModel.initLoginCallback()
 
         binding = FragmentFacebookLoginBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = this
         binding.loginButton.apply {
             setPermissions(EMAIL)
             fragment = this@FacebookLoginFragment

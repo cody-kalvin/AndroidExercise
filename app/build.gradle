@@ -7,17 +7,17 @@ plugins {
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    buildToolsVersion '30.0.2'
 
     defaultConfig {
-        applicationId "com.cody.androidexercise"
+        applicationId 'com.cody.androidexercise'
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
-        versionName "1.0"
+        versionName '1.0'
         multiDexEnabled true
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
 
     buildTypes {
@@ -43,26 +43,40 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.multidex:multidex:2.0.1'
-    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.1'
+    def multidex_version = '2.0.1'
+    def desugaring_version = '1.1.1'
+    def facebook_version = '8.1.0'
+    def gson_version = '2.8.6'
+    def core_ktx_version = '1.3.2'
+    def appcompat_version = '1.2.0'
+    def material_version = '1.2.1'
+    def constraintlayout_version = '2.0.4'
+    def lifecycle_version = '2.2.0'
+    def junit_version = '4.13.1'
+    def test_extension_version = '1.1.2'
+    def espresso_version = '3.3.0'
 
-    implementation 'com.facebook.android:facebook-android-sdk:8.1.0'
-    implementation 'com.facebook.android:facebook-core:8.1.0'
-    implementation 'com.facebook.android:facebook-login:8.1.0'
+    implementation "androidx.multidex:multidex:$multidex_version"
+    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:$desugaring_version"
+
+    implementation "com.facebook.android:facebook-android-sdk:$facebook_version"
+    implementation "com.facebook.android:facebook-core:$facebook_version"
+    implementation "com.facebook.android:facebook-login:$facebook_version"
+
+    implementation "com.google.code.gson:gson:$gson_version"
 
     implementation 'com.google.android.gms:play-services-location:17.1.0'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.2.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.2'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.2'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    testImplementation 'junit:junit:4.13.1'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation "androidx.core:core-ktx:$core_ktx_version"
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "com.google.android.material:material:$material_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
+    testImplementation "junit:junit:$junit_version"
+    androidTestImplementation "androidx.test.ext:junit:$test_extension_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
 }
