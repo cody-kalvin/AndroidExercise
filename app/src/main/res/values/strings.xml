@@ -1,10 +1,18 @@
 <resources>
     <string name="app_name">AndroidExercise</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menu_home">Home</string>
     <string name="fragment_home">Home</string>
     <string name="facebook_app_id">816004972531857</string>
     <string name="fb_login_protocol_scheme">fb816004972531857</string>
     <string name="menu_fb_login">Facebook Login</string>
     <string name="fragment_facebook_login">Facebook Login</string>
+    <string name="message_service_created">"Service created…"</string>
+    <string name="message_service_started">"Service started…"</string>
+    <string name="message_service_destroyed">"Service destroyed…"</string>
+    <string name="menu_service">Service</string>
+    <string name="fragment_service">Service</string>
+    <string name="format_percentage">%d %%</string>
+    <string name="action_play">Play</string>
+    <string name="action_pause">Pause</string>
+    <string name="action_replay">Replay</string>
 </resources>

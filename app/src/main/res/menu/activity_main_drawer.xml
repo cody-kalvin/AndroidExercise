@@ -10,5 +10,8 @@
         <item
             android:id="@+id/nav_facebook_login"
             android:title="@string/menu_fb_login" />
+        <item
+            android:id="@+id/nav_service"
+            android:title="@string/menu_service" />
     </group>
 </menu>
