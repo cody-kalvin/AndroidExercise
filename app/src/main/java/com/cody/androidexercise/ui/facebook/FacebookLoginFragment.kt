@@ -10,7 +10,6 @@ import com.cody.androidexercise.databinding.FragmentFacebookLoginBinding
 private const val EMAIL = "email"
 
 class FacebookLoginFragment : Fragment() {
-
     private lateinit var binding: FragmentFacebookLoginBinding
 
     private lateinit var viewModel: FacebookLoginViewModel

@@ -9,7 +9,6 @@ import com.cody.androidexercise.R
 import com.cody.androidexercise.databinding.FragmentAssetDataBinding
 
 class AssetDataFragment : Fragment() {
-
     private lateinit var binding: FragmentAssetDataBinding
 
     private lateinit var viewModel: AssetDataViewModel

@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.cody.androidexercise.databinding.FragmentFacebookDataBinding
 
 class FacebookDataFragment : Fragment() {
-
     private lateinit var binding: FragmentFacebookDataBinding
 
     private lateinit var viewModel: FacebookDataViewModel

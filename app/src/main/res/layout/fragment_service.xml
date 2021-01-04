@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.service.ServiceFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.cody.androidexercise.ui.service.ServiceViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:max="@{viewModel.maxValue}"
+            android:progress="@{viewModel.progress}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_percentage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxLines="1"
+            android:minLines="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progress_bar"
+            app:maxValue="@{viewModel.maxValue}"
+            app:progress="@{viewModel.progress}" />
+
+        <Button
+            android:id="@+id/action_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:isUpdating="@{viewModel.isProgressBarUpdating}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_percentage"
+            app:maxValue="@{viewModel.maxValue}"
+            app:progress="@{viewModel.progress}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

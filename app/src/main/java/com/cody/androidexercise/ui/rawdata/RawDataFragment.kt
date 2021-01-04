@@ -9,7 +9,6 @@ import com.cody.androidexercise.R
 import com.cody.androidexercise.databinding.FragmentRawDataBinding
 
 class RawDataFragment : Fragment() {
-
     private lateinit var binding: FragmentRawDataBinding
 
     private lateinit var viewModel: RawDataViewModel
