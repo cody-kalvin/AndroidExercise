@@ -11,7 +11,6 @@ import com.cody.androidexercise.databinding.FragmentServiceBinding
 import com.cody.androidexercise.service.MyService
 
 class ServiceFragment : Fragment() {
-
     private lateinit var viewBinding: FragmentServiceBinding
 
     private lateinit var viewModel: ServiceViewModel

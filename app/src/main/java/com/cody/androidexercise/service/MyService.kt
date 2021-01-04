@@ -4,7 +4,6 @@ import android.app.Service
 import android.content.Intent
 import android.os.*
 
-
 class MyService : Service() {
     private var handler = Handler(Looper.getMainLooper())
 

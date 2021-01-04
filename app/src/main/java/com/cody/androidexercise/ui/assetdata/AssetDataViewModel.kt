@@ -5,7 +5,6 @@ import androidx.lifecycle.*
 import java.io.*
 
 class AssetDataViewModel : ViewModel() {
-
     val content: MutableLiveData<String> = MutableLiveData("")
 
     private var _readResult: MutableLiveData<AssetDataReadResult> =

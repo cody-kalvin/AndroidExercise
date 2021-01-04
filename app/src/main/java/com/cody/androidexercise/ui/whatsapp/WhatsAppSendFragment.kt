@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.cody.androidexercise.databinding.FragmentWhatsAppSendBinding
 
 class WhatsAppSendFragment : Fragment() {
-
     private lateinit var binding: FragmentWhatsAppSendBinding
 
     private lateinit var viewModel: WhatsAppSendViewModel

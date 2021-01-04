@@ -5,7 +5,6 @@ import com.facebook.*
 import com.google.gson.Gson
 
 class FacebookGraphRepository(private val accessToken: AccessToken) {
-
     fun fetchMe(callback: (me: FacebookMeResponse) -> Unit) {
         val request = GraphRequest.newMeRequest(accessToken) { _, response ->
             val me = Gson().fromJson(response.rawResponse, FacebookMeResponse::class.java)

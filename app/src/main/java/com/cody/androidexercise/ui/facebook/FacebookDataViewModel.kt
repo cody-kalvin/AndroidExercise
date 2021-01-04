@@ -8,7 +8,6 @@ class FacebookDataViewModel(
     application: Application,
     private val repository: FacebookGraphRepository
 ) : AndroidViewModel(application) {
-
     private val _name: MutableLiveData<String> = MutableLiveData()
     val name: LiveData<String> = _name
 
