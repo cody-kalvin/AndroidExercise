@@ -83,12 +83,10 @@ class ServiceFragment : Fragment() {
                     service.resetTask()
                     viewModel.setIsProgressBarUpdating(true)
                 }
-
                 service.isPaused -> {
                     service.unPauseTask()
                     viewModel.setIsProgressBarUpdating(true)
                 }
-
                 else -> {
                     service.pauseTask()
                     viewModel.setIsProgressBarUpdating(false)
