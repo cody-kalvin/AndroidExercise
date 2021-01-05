@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1030255656702",
+    "project_id": "fir-practice-5d5db",
+    "storage_bucket": "fir-practice-5d5db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1030255656702:android:86133d08fae17b7c1e2faf",
+        "android_client_info": {
+          "package_name": "com.cody.androidexercise"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1030255656702-1iehg8ljgosso3srhvd0g0fue4dparul.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCY9-1lMR91w8K59Cz4UyA7N9DijOxrV2c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1030255656702-1iehg8ljgosso3srhvd0g0fue4dparul.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -42,4 +42,8 @@
     <string name="fragment_location">Location</string>
     <string name="permission_detail">Location permission is needed.</string>
     <string name="action_ok">OK</string>
+    <string name="menu_fcm">FCM</string>
+    <string name="fragment_fcm">FCM</string>
+    <string name="fcm_notification_channel_id">fcm_channel_01</string>
+    <string name="fcm_notification_channel_name">FCM Notification</string>
 </resources>

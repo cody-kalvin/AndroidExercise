@@ -9,6 +9,8 @@ object SharedPrefUtil {
 
     const val FOREGROUND_LOCATION_TRACKING = "foreground_location_tracking"
 
+    const val FCM_TOKEN = "fcm_access_token"
+
     private lateinit var instance: SharedPreferences
 
     fun init(context: Context) {
@@ -35,6 +37,17 @@ object SharedPrefUtil {
         }
         get() {
             return instance.getBoolean(FOREGROUND_LOCATION_TRACKING, false)
+        }
+
+    var firebaseToken: String = ""
+        set(value) {
+            field = value
+            val editor = instance.edit()
+            editor.putString(FCM_TOKEN, value)
+            editor.apply()
+        }
+        get() {
+            return instance.getString(FCM_TOKEN, "") ?: ""
         }
 
     fun registerOnSharedPreferenceChangeListener(listener: SharedPreferences.OnSharedPreferenceChangeListener) {
