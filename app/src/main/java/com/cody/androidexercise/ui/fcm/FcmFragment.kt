@@ -3,7 +3,6 @@ package com.cody.androidexercise.ui.fcm
 import android.app.*
 import android.content.*
 import android.os.*
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.*
 import android.widget.Toast
@@ -23,7 +22,7 @@ class FcmFragment : Fragment() {
 
     private inner class FcmReceiver : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            // TODO: do something to body
+            // TODO: do something to notification data
             // val body = intent.getStringExtra(FcmService.EXTRA_DATA) ?: "Empty body"
         }
     }
@@ -51,7 +50,6 @@ class FcmFragment : Fragment() {
                 val token = task.result
                 Toast.makeText(requireContext(), token, Toast.LENGTH_SHORT).show()
                 viewModel.setBody(token)
-                Log.d("APP_DEBUG", token)
             })
         }
 
