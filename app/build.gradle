@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -56,6 +57,7 @@ dependencies {
     def test_extension_version = '1.1.2'
     def espresso_version = '3.3.0'
     def gms_version = '17.1.0'
+    def firebase_version = '26.2.0'
 
     implementation "androidx.multidex:multidex:$multidex_version"
     coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:$desugaring_version"
@@ -67,6 +69,9 @@ dependencies {
     implementation "com.google.code.gson:gson:$gson_version"
 
     implementation "com.google.android.gms:play-services-location:$gms_version"
+
+    implementation platform("com.google.firebase:firebase-bom:$firebase_version")
+    implementation 'com.google.firebase:firebase-messaging-ktx'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "androidx.core:core-ktx:$core_ktx_version"
