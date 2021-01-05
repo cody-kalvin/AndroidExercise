@@ -138,60 +138,91 @@ class ForegroundLocationService : Service() {
     }
 
     private fun generateNotification(location: Location?): Notification {
-        val mainNotificationText = if (location != null) {
+        val title = getString(R.string.app_name)
+
+        val body = generateNotificationBody(location)
+
+        generateNotificationChannel(title)
+
+        val style = generateNotificationStyle(title, body)
+
+        val builder = NotificationCompat.Builder(applicationContext, NOTIFICATION_CHANNEL_ID).run {
+            setStyle(style)
+            setContentTitle(title)
+            setContentText(body)
+            setSmallIcon(R.mipmap.ic_launcher)
+            setDefaults(NotificationCompat.DEFAULT_ALL)
+            setOngoing(true)
+            setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+            generateNotificationLaunchAction(this@run)
+            generateNotificationCancelAction(this@run)
+        }
+
+        return builder.build()
+    }
+
+    private fun generateNotificationBody(location: Location?): String {
+        return if (location != null) {
             getString(R.string.display_coordinates, location.latitude, location.longitude)
         } else {
             getString(R.string.message_no_location_tracking)
         }
-        val titleText = getString(R.string.app_name)
+    }
 
+    private fun generateNotificationChannel(title: String) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val notificationChannel = NotificationChannel(
                 NOTIFICATION_CHANNEL_ID,
-                titleText,
+                title,
                 NotificationManager.IMPORTANCE_DEFAULT
             )
             notificationManager.createNotificationChannel(notificationChannel)
         }
+    }
 
-        val bigTextStyle = NotificationCompat.BigTextStyle()
-            .bigText(mainNotificationText)
-            .setBigContentTitle(titleText)
+    private fun generateNotificationStyle(
+        title: String,
+        body: String
+    ): NotificationCompat.BigTextStyle {
+        return NotificationCompat.BigTextStyle().run {
+            setBigContentTitle(title)
+            bigText(body)
+        }
+    }
 
-        val launchActivityIntent = Intent(this, MainActivity::class.java)
+    private fun generateNotificationLaunchAction(builder: NotificationCompat.Builder): NotificationCompat.Builder {
+        val launchIntent = Intent(this, MainActivity::class.java)
 
-        val activityPendingIntent = PendingIntent.getActivity(
-            this, 0, launchActivityIntent, 0
+        val pendingIntent = PendingIntent.getActivity(this, 0, launchIntent, 0)
+
+        builder.addAction(
+            android.R.drawable.ic_dialog_info,
+            getString(R.string.action_start),
+            pendingIntent
         )
 
-        val cancelIntent = Intent(this, ForegroundLocationService::class.java)
-        cancelIntent.putExtra(EXTRA_CANCEL_LOCATION_TRACKING_FROM_NOTIFICATION, true)
+        return builder
+    }
 
-        val servicePendingIntent = PendingIntent.getService(
-            this, 0, cancelIntent, PendingIntent.FLAG_UPDATE_CURRENT
+    private fun generateNotificationCancelAction(builder: NotificationCompat.Builder): NotificationCompat.Builder {
+        val cancelIntent = Intent(this, ForegroundLocationService::class.java).apply {
+            putExtra(EXTRA_CANCEL_LOCATION_TRACKING_FROM_NOTIFICATION, true)
+        }
+
+        val pendingIntent = PendingIntent.getService(
+            this,
+            0,
+            cancelIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT
         )
-        val notificationCompatBuilder =
-            NotificationCompat.Builder(applicationContext, NOTIFICATION_CHANNEL_ID)
 
-        return notificationCompatBuilder
-            .setStyle(bigTextStyle)
-            .setContentTitle(titleText)
-            .setContentText(mainNotificationText)
-            .setSmallIcon(R.mipmap.ic_launcher)
-            .setDefaults(NotificationCompat.DEFAULT_ALL)
-            .setOngoing(true)
-            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-            .addAction(
-                android.R.drawable.ic_dialog_info,
-                getString(R.string.action_start),
-                activityPendingIntent
-            )
-            .addAction(
-                android.R.drawable.ic_delete,
-                getString(R.string.action_cancel),
-                servicePendingIntent
-            )
-            .build()
+        builder.addAction(
+            android.R.drawable.ic_delete,
+            getString(R.string.action_cancel),
+            pendingIntent
+        )
+
+        return builder
     }
 
     companion object {
