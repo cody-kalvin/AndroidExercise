@@ -2,7 +2,7 @@ package com.cody.androidexercise.ui.facebook
 
 import android.content.Intent
 import androidx.lifecycle.ViewModel
-import com.cody.androidexercise.credential.CredentialRepository
+import com.cody.androidexercise.util.SharedPrefUtil
 import com.facebook.*
 import com.facebook.login.*
 import com.google.gson.Gson
@@ -19,7 +19,7 @@ class FacebookLoginViewModel : ViewModel() {
                 override fun onSuccess(result: LoginResult?) {
                     val accessToken = result?.accessToken
                     if (accessToken != null && !accessToken.isExpired) {
-                        CredentialRepository.facebookToken = Gson().toJson(accessToken)
+                        SharedPrefUtil.facebookToken = accessToken.token
                     }
                 }
 

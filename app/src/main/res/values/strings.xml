@@ -33,4 +33,13 @@
     <string name="action_play">Play</string>
     <string name="action_pause">Pause</string>
     <string name="action_replay">Replay</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_start">Start</string>
+    <string name="display_coordinates">%1$.1f, %2$.1f</string>
+    <string name="message_no_location_tracking">Unable to track location</string>
+    <string name="action_request_permission">Request Permission</string>
+    <string name="menu_location">Location</string>
+    <string name="fragment_location">Location</string>
+    <string name="permission_detail">Location permission is needed.</string>
+    <string name="action_ok">OK</string>
 </resources>

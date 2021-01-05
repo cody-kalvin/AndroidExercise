@@ -55,6 +55,7 @@ dependencies {
     def junit_version = '4.13.1'
     def test_extension_version = '1.1.2'
     def espresso_version = '3.3.0'
+    def gms_version = '17.1.0'
 
     implementation "androidx.multidex:multidex:$multidex_version"
     coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:$desugaring_version"
@@ -64,6 +65,8 @@ dependencies {
     implementation "com.facebook.android:facebook-login:$facebook_version"
 
     implementation "com.google.code.gson:gson:$gson_version"
+
+    implementation "com.google.android.gms:play-services-location:$gms_version"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "androidx.core:core-ktx:$core_ktx_version"
